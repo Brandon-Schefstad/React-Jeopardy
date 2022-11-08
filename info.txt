@@ -1,0 +1,12 @@
+ #52567b - Blue
+ Yellow 
+
+
+ Improvements:
+ Fetched list of categories and stores in app, saves us from requesting 4300 array items every page refresh. 
+
+ Handling spaces and punctuation in fetch request
+
+
+ Optimizations:
+ Run query to check if clue has 200,400,600,800,1000 and filter categories.js to only hold those. 
