@@ -6,7 +6,7 @@ const Clue = ({ value, question, answer }) => {
 	// Seen = close + Green
 	// Question = Slide1
 	// Answer is Slide2
-	console.log(value, question, answer);
+
 	const [focus, setFocus] = useState(false);
 	const [seen, setSeen] = useState(false);
 	const [checkAnswer, setCheckAnswer] = useState('');
@@ -30,7 +30,26 @@ const Clue = ({ value, question, answer }) => {
 	} else if (focus) {
 		return (
 			<>
-				<LargeFocusClue slide1={question} slide2={answer} />
+				<LargeFocusClue
+					slide1={question}
+					slide2={answer}
+					value={value}
+					setSeen={setSeen}
+					setFocus={setFocus}
+				/>
+			</>
+		);
+	} else if (seen) {
+		return (
+			<>
+				<div
+					onClick={() => {
+						handleClick();
+					}}
+					className="cluecard"
+				>
+					SEEN
+				</div>
 			</>
 		);
 	}

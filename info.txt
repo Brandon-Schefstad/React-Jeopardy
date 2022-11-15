@@ -10,3 +10,9 @@
 
  Optimizations:
  Run query to check if clue has 200,400,600,800,1000 and filter categories.js to only hold those. 
+
+
+ New Things:
+ categories.js saves on querying for 100 cats every time. Can I batch clue requests?
+
+ Using event bubbling for state management. (e.g.)

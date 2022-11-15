@@ -5,12 +5,12 @@ const Column = ({ title }) => {
 	const [clues, setClues] = useState([]);
 	const baseURL = 'https://jeopardy-game-api.herokuapp.com/clues/categories/';
 	const endURL = title.replace(/[ ]/gi, '%20').replace(/['']/gi, '%27');
-	console.log(endURL);
+
 	async function getClues() {
 		try {
 			const response = await fetch(baseURL + endURL);
 			const data = await response.json();
-			console.log(data);
+
 			setClues(data);
 		} catch (error) {}
 	}

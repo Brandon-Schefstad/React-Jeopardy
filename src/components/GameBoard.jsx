@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Column from './Column';
 import listOfCategories from './categories.js';
+import Players from './Players';
 
 const GameBoard = () => {
 	const [categoryList, setCategoryList] = useState([]);
@@ -34,22 +35,18 @@ const GameBoard = () => {
 			}
 		}
 		setCategoryList(categories);
+		setLoaded(true);
 	}
 	useEffect(() => {
 		getCategories();
-		setLoaded(true);
 	}, []);
-	console.log(categoryList);
+
 	return (
 		<div className="GameBoard">
-			{loaded ? (
-				categoryList.map((title, index) => {
-					return <Column key={index} title={title} />;
-				})
-			) : (
-				<></>
-			)}
-			<>{categories}</>
+			{categoryList.map((title, index) => {
+				return <Column key={index} title={title} />;
+			})}
+			{loaded ? <Players /> : <></>}
 		</div>
 	);
 };
