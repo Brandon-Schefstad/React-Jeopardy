@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import PlayerCard from './PlayerCard';
 import Button from './Button';
+
 const Players = () => {
-	// States:
-	// playerCount --> [1,2,3,4] (if < 4 ) ++ else = 1
 	const [playerCount, setPlayerCount] = useState([]);
 	function incrementCount() {
 		if (playerCount.length === 0) {
@@ -31,8 +30,18 @@ const Players = () => {
 		<div className="players">
 			<div className="players__title">
 				<h1>Score Board:</h1>
-				<Button handleClick={incrementCount} text={'+'} />
-				<Button handleClick={decrementCount} text={'-'} />
+				<div className="player--count">
+					<Button
+						className="players__button"
+						handleClick={incrementCount}
+						text={'+'}
+					/>
+					<Button
+						className="players__button"
+						handleClick={decrementCount}
+						text={'-'}
+					/>
+				</div>
 			</div>
 			<div className="player__field">
 				{playerCount.map((player) => {

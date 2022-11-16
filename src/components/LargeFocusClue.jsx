@@ -19,7 +19,9 @@ const LargeFocusClue = ({ slide1, slide2, value, setSeen, setFocus }) => {
 	} else if (slide === slide2) {
 		return (
 			<div onClick={() => handleClick()} className="cluecard--focus">
-				<h2 className="cluecard--focus__text">{slide}</h2>
+				<h2 className="cluecard--focus__text">
+					{slide[0].toUpperCase() + slide.slice(1)}
+				</h2>
 				<p className="cluecard--focus__value">{value}</p>
 			</div>
 		);
