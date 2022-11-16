@@ -11,9 +11,26 @@ const LargeFocusClue = ({ slide1, slide2, value, setSeen, setFocus }) => {
 		}
 	}
 	if (slide === slide1) {
+		// console.log(slide);
+		if (slide.includes('<a')) {
+			const regex = /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g;
+			const anchorTag = slide.match(regex);
+			const url = anchorTag.join('').split('"')[1];
+			console.log(url);
+			return (
+				<div onClick={() => handleClick()} className="cluecard--focus">
+					<iframe src={url} />
+					<h2 className="cluecard--focus__text">
+						{slide.replaceAll(regex, '')}
+					</h2>
+				</div>
+			);
+		}
 		return (
 			<div onClick={() => handleClick()} className="cluecard--focus">
-				<h2 className="cluecard--focus__text">{slide}</h2>
+				<h2 className="cluecard--focus__text">
+					{slide.replaceAll('<br />', '\n')}
+				</h2>
 			</div>
 		);
 	} else if (slide === slide2) {
