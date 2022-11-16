@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import Button from './Button';
-import Card from '@mui/material/Card';
+// import Card from '@mui/material/Card';
 
 const PlayerCard = ({ value }) => {
 	const [score, setScore] = useState(0);
 	function incrementScore() {
 		const clue = document.querySelector('.cluecard--focus');
-
 		const newScore =
 			score + parseInt(clue.children[1].innerHTML.split('').splice(1).join(''));
 		setScore(newScore);
@@ -18,7 +17,7 @@ const PlayerCard = ({ value }) => {
 		setScore(newScore);
 	}
 	return (
-		<Card className="playercard">
+		<div className="playercard">
 			{score}
 			<div className="playercard__buttons">
 				<Button
@@ -32,7 +31,7 @@ const PlayerCard = ({ value }) => {
 					text={'-'}
 				/>
 			</div>
-		</Card>
+		</div>
 	);
 };
 
