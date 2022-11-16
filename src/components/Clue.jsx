@@ -30,6 +30,14 @@ const Clue = ({ value, question, answer }) => {
 	} else if (focus) {
 		return (
 			<>
+				<div
+					onClick={() => {
+						handleClick();
+					}}
+					className="cluecard"
+				>
+					{value}
+				</div>
 				<LargeFocusClue
 					slide1={question}
 					slide2={answer}
@@ -42,14 +50,7 @@ const Clue = ({ value, question, answer }) => {
 	} else if (seen) {
 		return (
 			<>
-				<div
-					onClick={() => {
-						handleClick();
-					}}
-					className="cluecard"
-				>
-					SEEN
-				</div>
+				<div className="cluecard cluecard--seen"></div>
 			</>
 		);
 	}

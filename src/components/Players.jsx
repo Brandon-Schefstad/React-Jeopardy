@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import PlayerCard from './PlayerCard';
 import Button from './Button';
+
 const Players = () => {
-	// States:
-	// playerCount --> [1,2,3,4] (if < 4 ) ++ else = 1
 	const [playerCount, setPlayerCount] = useState([]);
 	function incrementCount() {
 		if (playerCount.length === 0) {

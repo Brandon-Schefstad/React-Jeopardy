@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Button from './Button';
+import Card from '@mui/material/Card';
 
 const PlayerCard = ({ value }) => {
 	const [score, setScore] = useState(0);
@@ -17,7 +18,7 @@ const PlayerCard = ({ value }) => {
 		setScore(newScore);
 	}
 	return (
-		<div className="playercard">
+		<Card className="playercard">
 			{score}
 			<div className="playercard__buttons">
 				<Button
@@ -31,7 +32,7 @@ const PlayerCard = ({ value }) => {
 					text={'-'}
 				/>
 			</div>
-		</div>
+		</Card>
 	);
 };
 
